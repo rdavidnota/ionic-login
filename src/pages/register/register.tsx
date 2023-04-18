@@ -49,7 +49,7 @@ const RegisterPage: React.FC = () => {
                             <IonItem>
                                 <IonInput
                                     value={_name}
-                                    onIonChange={(event) => { handlerName(event.target.value) }}
+                                    onIonInput={(event) => { handlerName(event.target.value) }}
                                     label="Name:"
                                     labelPlacement="floating"
                                     placeholder="Jhon">
@@ -58,7 +58,7 @@ const RegisterPage: React.FC = () => {
                             <IonItem>
                                 <IonInput
                                     value={_lastname}
-                                    onIonChange={(event) => { handlerLastName(event.target.value) }}
+                                    onIonInput={(event) => { handlerLastName(event.target.value) }}
                                     label="LastName:"
                                     labelPlacement="floating"
                                     placeholder="Galarza Medrano">
@@ -67,7 +67,7 @@ const RegisterPage: React.FC = () => {
                             <IonItem>
                                 <IonInput
                                     value={_address}
-                                    onIonChange={(event) => { handlerAddress(event.target.value) }}
+                                    onIonInput={(event) => { handlerAddress(event.target.value) }}
                                     label="Address:"
                                     labelPlacement="floating"
                                     placeholder="Barrio Jovenal s/N">
@@ -76,7 +76,7 @@ const RegisterPage: React.FC = () => {
                             <IonItem>
                                 <IonInput
                                     value={_username}
-                                    onIonChange={(event) => { handlerUsername(event.target.value) }}
+                                    onIonInput={(event) => { handlerUsername(event.target.value) }}
                                     label="Username:"
                                     labelPlacement="floating"
                                     placeholder="jhon.galarza@mail.com"
@@ -86,7 +86,7 @@ const RegisterPage: React.FC = () => {
                             <IonItem>
                                 <IonInput
                                     value={_password}
-                                    onIonChange={(event) => { handlerPassword(event.target.value) }}
+                                    onIonInput={(event) => { handlerPassword(event.target.value) }}
                                     label="Password:"
                                     labelPlacement="floating"
                                     placeholder="Password">

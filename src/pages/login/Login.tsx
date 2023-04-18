@@ -207,7 +207,7 @@ const LoginPage: React.FC = () => {
                                     <IonItem>
                                         <IonInput
                                             value={user}
-                                            onIonChange={(event) => { handlerUser(event.target.value) }}
+                                            onIonInput={(event) => { handlerUser(event.target.value) }}
                                             label="email"
                                             labelPlacement="floating"
                                             placeholder="user@mail.com"
@@ -217,7 +217,7 @@ const LoginPage: React.FC = () => {
                                     <IonItem>
                                         <IonInput
                                             value={pass}
-                                            onIonChange={(event) => { handlerPass(event.target.value) }}
+                                            onIonInput={(event) => { handlerPass(event.target.value) }}
                                             label="pass"
                                             labelPlacement="floating"
                                             type="password">
