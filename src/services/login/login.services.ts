@@ -17,8 +17,25 @@ export interface LoginUserRequest extends BaseRequest {
     }
 }
 
-const urlLogin: string = 'http://192.168.0.9:3000/users/login';
-const urlToken: string = 'http://192.168.0.9:3000/users/tokenlogin';
+export interface RegisterUserResponse extends BaseResponse {
+    data: {
+        token?: string;
+    }
+}
+
+export interface RegisterUserRequest extends BaseRequest {
+    data: {
+        name: string;
+        lastname: string;
+        address: string;
+        username: string;
+        password: string;
+    }
+}
+
+const urlLogin: string = 'http://192.168.1.6:3000/users/login';
+const urlToken: string = 'http://192.168.1.6:3000/users/tokenlogin';
+const urlRegister: string = 'http://192.168.1.6:3000/users/register';
 
 export async function loginUser(user: string, pass: string): Promise<LoginUserResponse> {
     let response: LoginUserResponse = {
@@ -75,6 +92,42 @@ export async function loginHuella(token: string): Promise<LoginUserResponse> {
             await storage.set('profile', response.data);
 
         }
+    } catch (error: any) {
+        response = {
+            statusCode: -1,
+            message: error.message,
+            data: {}
+        }
+    }
+    finally {
+        return response;
+    }
+}
+
+
+export async function register(
+    name: string,
+    lastname: string,
+    address: string,
+    username: string,
+    password: string
+): Promise<RegisterUserResponse> {
+    let response: RegisterUserResponse = {
+        statusCode: 0,
+        message: '',
+        data: {}
+    };
+
+    try {
+        let request = {
+            name,
+            lastname,
+            address,
+            username,
+            password,
+        }
+        response = await post(urlRegister, request, USER_LOGIN);
+
     } catch (error: any) {
         response = {
             statusCode: -1,

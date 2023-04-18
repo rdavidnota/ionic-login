@@ -5,6 +5,7 @@ import Menu from '../components/menu/Menu';
 import HomePage from '../pages/home/Home';
 import LoginPage from '../pages/login/Login';
 import Page from '../pages/Page';
+import RegisterPage from '../pages/register/register';
 
 
 const RouteApp: React.FC = () => {
@@ -25,6 +26,9 @@ const RouteApp: React.FC = () => {
                     </Route>
                     <Route path="/home" exact={true} >
                         <HomePage />
+                    </Route>
+                    <Route path="/register" exact={true} >
+                        <RegisterPage />
                     </Route>
                 </IonRouterOutlet>
             </IonSplitPane>

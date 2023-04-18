@@ -9,7 +9,11 @@ import {
     IonGrid,
     IonInput,
     IonItem,
+    IonLabel,
+    IonNav,
+    IonNavLink,
     IonPage,
+    IonRouterLink,
     IonRow,
     useIonAlert,
     useIonToast,
@@ -23,6 +27,7 @@ import { getData, storage } from "../../storage/storage";
 import CustomHeader from "../../components/custom-header/CustomHeader";
 import { ThemeDetection } from "@ionic-native/theme-detection/index";
 import { useHistory } from "react-router";
+import RegisterPage from "../register/register";
 
 
 const LoginPage: React.FC = () => {
@@ -37,6 +42,7 @@ const LoginPage: React.FC = () => {
     });
     let [isDarkModeEnabled, setDarkModeEnabled] = useState(false);
     let [isReady, setIsReady] = useState(false);
+    let history = useHistory();
 
     const [present] = useIonToast();
     const [presentAlert] = useIonAlert();
@@ -169,8 +175,6 @@ const LoginPage: React.FC = () => {
         });
     }
 
-    let history = useHistory();
-
     function validarCredenciales(): boolean {
         if (credentials && credentials.username != '' && credentials.password != '')
             return true;
@@ -183,6 +187,10 @@ const LoginPage: React.FC = () => {
             solicitarHuella();
         }
     }, [isReady])
+
+    function handlerRegister(){
+        history.push('/register')
+    }
 
     return (
         <IonPage>
@@ -220,6 +228,12 @@ const LoginPage: React.FC = () => {
                                     <IonButton onClick={handleClick} expand="block">Sign in</IonButton>
                                 </IonFooter>
                             </IonCard>
+
+                        </IonCol>
+                    </IonRow>
+                    <IonRow>
+                        <IonCol>
+                            <IonLabel  onClick={handlerRegister} >Register</IonLabel>
                         </IonCol>
                     </IonRow>
                 </IonGrid>
